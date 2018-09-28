@@ -6,11 +6,11 @@ LABEL version="latest"
 ENV HUB_USER nouchka
 ##ENV GITHUB_TOKEN
 
-RUN apt-get update && \
-	DEBIAN_FRONTEND=noninteractive apt-get -yq --no-install-recommends install curl jq ca-certificates && \
-	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
 COPY metrics.sh /metrics
-RUN chmod +x /metrics
+
+RUN apt-get update && \
+	DEBIAN_FRONTEND=noninteractive apt-get -yq --no-install-recommends install curl=* jq=* ca-certificates=* && \
+	rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
+	chmod +x /metrics
 
 ENTRYPOINT [ "/metrics" ]
