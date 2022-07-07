@@ -1,4 +1,4 @@
 sut:
   build: .
-  entrypoint: metrics
+  entrypoint: bash -c 'metrics|grep stars'
   command: version
