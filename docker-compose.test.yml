@@ -2,3 +2,5 @@ sut:
   build: .
   entrypoint: bash -c 'metrics|grep stars'
   command: version
+  environment:
+    - GITHUB_TOKEN
